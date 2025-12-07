@@ -1,81 +1,91 @@
-# 🎬 Streaming Schedule Formatter
+# Rotten Tomatoes Streaming Schedule Formatter
 
-A lightweight Python utility that converts a raw text file of streaming show releases into a clean, Discord-ready formatted embed post.
+This repository contains a simple but powerful Jupyter Notebook (`.ipynb`) workflow that converts a raw text dump from Rotten Tomatoes’ monthly “What’s New to Streaming” YouTube video into a clean, structured, Discord‑ready formatted text file.
 
-This script reads a `WhatsNew.txt` file containing shows, platforms, and release dates, then outputs a structured and stylized `.txt` file that can be directly pasted into Discord.
+## 📌 Overview
 
----
+Each month, Rotten Tomatoes posts a YouTube video listing upcoming streaming releases.  
+This project takes your manually copied list (from the video description or transcript), stored in a file named `WhatsNew.txt`, and transforms it into a polished, organized output file that is ready to paste directly into a Discord announcement channel.
 
-## ✨ Features
-- Extracts show data using regex pattern matching  
-- Converts month names into abbreviated formats (e.g., *September → Sep*)  
-- Normalizes show titles (e.g., *"Season 2"* → *"S2"*)  
-- Groups shows by day of the month  
-- Automatically forms a clean, stylized Discord post layout  
-- Auto-detects the current year if not provided  
-- Includes a footer with placeholders for previous posts and sources  
-- Outputs a final cleaned file:  
-  **`stream_schedule_<month>_<year>_formatted.txt`**
+The transformation includes:
+- Extracting show titles, platforms, and dates
+- Normalizing dates + auto-detecting month/year
+- Grouping shows by day
+- Formatting output for Discord embeds
+- Exporting a final file like:  
+  `stream_schedule_dec_2025_formatted.txt`
 
----
+## 📂 Workflow Summary
 
-## 📁 Input Format (WhatsNew.txt)
+1. Copy the “What’s New” timestamps and descriptions from Rotten Tomatoes.
+2. Paste them into `WhatsNew.txt`.
+3. Open and run the `formatter.ipynb` Jupyter Notebook.
+4. A clean, structured output file is generated automatically.
+5. Paste the formatted output into your Discord server.
 
-Each line must contain a timestamp, show title, platform, and date in this structure:
+## 🧠 Why a Jupyter Notebook?
 
-```
-12:00 Show Title on Netflix - September 14
-08:30 Another Show on Hulu - October 2
-```
+This project uses a **Jupyter Notebook (`.ipynb`)**, which makes it easier to:
+- See formatted output step-by-step  
+- Debug parsing issues  
+- Tweak formatting and re-run cells interactively  
+- Keep monthly formatting adjustments simple
 
----
+No command-line execution is required — just open the notebook and run the cells.
 
-## ▶️ Usage
+## 📝 Input Format Example
 
-### 1. Place the input file
-Place your `WhatsNew.txt` file in the same directory as the script.
-
-### 2. Run the script
-```
-python stream_formatter.py
-```
-
-### 3. Output file
-Your formatted file will be created using the pattern:
+Your `WhatsNew.txt` file should contain lines like:
 
 ```
-stream_schedule_nov_2025_formatted.txt
+00:00 The Abandons Season 1 on Netflix - December 4
+01:54 Spartacus: House of Ashur Season 1 on STARZ - December 5
+04:12 Percy Jackson and the Olympians Season 2 on Disney+ - December 10
 ```
 
-Paste this directly into Discord.
-
----
-
-## 📦 Example Output
+## ✅ Output Example
 
 ```
 Monthly Stream Update
-Top Streaming Shows | Nov-2025
+Top Streaming Shows | Dec-2025
 +++
 
-**Nov 3**
-*The Witcher S3 (Netflix)*
+**Dec 4**
+*The Abandons S1 (Netflix)*
 
-**Nov 8**
-*Loki S2 (Disney+)*
-
-**Last Month's Post:**
-[**Top Streaming Shows - October Recap**](PLACEHOLDER)
-
-**Source**
-[**Rotten Tomatoes YT**](PLACEHOLDER)
+**Dec 5**
+*Spartacus: House of Ashur S1 (STARZ)*
 ```
 
----
+## 📦 Output File
 
-## 🧩 Dependencies
+The notebook automatically generates:
+
+```
+stream_schedule_<month>_<year>_formatted.txt
+```
+
+Example:
+
+```
+stream_schedule_dec_2025_formatted.txt
+```
+
+## 🛠 Requirements
+
 - Python 3.8+
-- Standard library only
+- Jupyter Notebook
+- No external libraries required — only Python standard library
+
+## ▶️ How to Run
+
+1. Launch Jupyter Notebook:
+   ```
+   jupyter notebook
+   ```
+2. Open `formatter.ipynb`
+3. Run all cells
+4. Check the output folder for the generated file
 
 ---
 
@@ -88,4 +98,4 @@ Top Streaming Shows | Nov-2025
 ---
 
 ## 📜 License
-MIT License
+This project is free to use, modify, and share.
